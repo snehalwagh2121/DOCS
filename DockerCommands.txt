@@ -1,0 +1,27 @@
+build image
+docker build -t form-example .
+
+run conatiner
+docker run -dp 8080:8080 form-example --name form-application
+
+run container with network and name
+docker run --name container-name --network microservice-network -dp 8888:8888 config-server
+
+run docker container with dns config:
+docker run --name conatiner-name --network microservice-network --dns 8.8.8.8 -dp 8888:8888 config-server
+docker run --name conatiner-name --network microservice-network --dns 8.8.8.8 -dp 8888:8888 config-server
+
+list containers:
+docker ps  
+
+inspect containers:
+docker inspect <conatiner-name>
+
+create network:
+docker network create microservice-network
+
+inspect network:
+docker inspect network microservice-network
+
+bash into contianer:
+docker exec -it eureka-server /bin/bash
